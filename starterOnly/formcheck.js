@@ -18,6 +18,7 @@ function removeAlert(targetDiv) {
 first.addEventListener("change", formIsValid);
 last.addEventListener("change", formIsValid);
 email.addEventListener("change", formIsValid);
+birthDate.addEventListener("change", formIsValid);
 
 function firstIsValid() {
   if (isTooLong(first.value.length)) {
@@ -60,7 +61,13 @@ function emailIsValid() {
   }
 }
 
-function dateIsValid() {}
+function dateIsValid() {
+  if (birthdate.value.length == 10) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 function isTooLong(nomb) {
   if (nomb > 1) {
@@ -71,7 +78,7 @@ function isTooLong(nomb) {
 }
 
 function formIsValid() {
-  if (firstIsValid() && lastIsValid() && emailIsValid()) {
+  if (firstIsValid() && lastIsValid() && emailIsValid() && dateIsValid()) {
     console.log("Is valid");
     btnSubmit.removeAttribute("disabled");
   } else {
