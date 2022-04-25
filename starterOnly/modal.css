@@ -537,6 +537,7 @@ footer {
 }
 .error {
   position: absolute;
+  z-index: 1;
   right: 0;
   color: red;
   font-size: 14px;
