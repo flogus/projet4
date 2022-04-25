@@ -537,14 +537,9 @@ footer {
   position: relative;
 }
 .error {
-  position: absolute;
-  z-index: 1;
-  right: 0;
+  position: relative;
   color: red;
   font-size: 14px;
-  top: 8px;
-  background: white;
-  padding: 5px;
-  max-width: 190px;
-  box-shadow: 2px 2px 5px grey;
+  top: 2px;
+  padding: 0;
 }
