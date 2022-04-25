@@ -1,8 +1,15 @@
+// Const pour les éléments du formulaire
 const first = document.getElementById("first");
 const last = document.getElementById("last");
 const email = document.getElementById("email");
 const birthDate = document.getElementById("birthdate");
 const btnSubmit = document.querySelector("input.btn-submit");
+
+// Ajout des evenemts sur le formulaire
+first.addEventListener("change", formIsValid);
+last.addEventListener("change", formIsValid);
+email.addEventListener("change", formIsValid);
+birthDate.addEventListener("change", formIsValid);
 
 function addAlert(targetDiv, alertText) {
   let divError = document.createElement("div");
@@ -14,11 +21,6 @@ function addAlert(targetDiv, alertText) {
 function removeAlert(targetDiv) {
   targetDiv.nextSibling.remove();
 }
-
-first.addEventListener("change", formIsValid);
-last.addEventListener("change", formIsValid);
-email.addEventListener("change", formIsValid);
-birthDate.addEventListener("change", formIsValid);
 
 function firstIsValid() {
   if (isTooLong(first.value.length)) {
@@ -42,11 +44,6 @@ function lastIsValid() {
     return true;
   }
 }
-
-function conditionGeneralIsValid() {
-  addAlert(last, messages.conditions);
-}
-
 function emailIsValid() {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
     return true;
@@ -60,7 +57,6 @@ function emailIsValid() {
     console.log("Email is NOT valid");
   }
 }
-
 function dateIsValid() {
   if (birthdate.value.length == 10) {
     return true;
@@ -68,13 +64,8 @@ function dateIsValid() {
     return false;
   }
 }
-
-function isTooLong(nomb) {
-  if (nomb > 1) {
-    return false;
-  } else {
-    return true;
-  }
+function conditionGeneralIsValid() {
+  addAlert(last, messages.conditions);
 }
 
 function formIsValid() {
@@ -84,5 +75,13 @@ function formIsValid() {
   } else {
     console.log("Is NOT valid");
     btnSubmit.setAttribute("disabled", "");
+  }
+}
+
+function isTooLong(nomb) {
+  if (nomb > 1) {
+    return false;
+  } else {
+    return true;
   }
 }
