@@ -1,8 +1,7 @@
 const first = document.getElementById("first");
 const last = document.getElementById("last");
 const email = document.getElementById("email");
-const birthdate = document.getElementById("birthdate");
-const date = document.getElementById("date");
+const birthDate = document.getElementById("birthdate");
 const btnSubmit = document.querySelector("input.btn-submit");
 
 function addAlert(targetDiv, alertText) {
@@ -60,6 +59,8 @@ function emailIsValid() {
     console.log("Email is NOT valid");
   }
 }
+
+function dateIsValid() {}
 
 function isTooLong(nomb) {
   if (nomb > 1) {
