@@ -22,7 +22,7 @@ email.addEventListener("change", formIsValid);
 
 function firstIsValid() {
   if (isTooLong(first.value.length)) {
-    addAlert(first, messages[0]);
+    addAlert(first, messages.caractOuPlus);
     return false;
   } else {
     if (first.nextSibling) {
@@ -33,7 +33,7 @@ function firstIsValid() {
 }
 function lastIsValid() {
   if (isTooLong(last.value.length)) {
-    addAlert(last, messages[0]);
+    addAlert(last, messages.caractOuPlus);
     return false;
   } else {
     if (last.nextSibling) {
@@ -44,14 +44,21 @@ function lastIsValid() {
 }
 
 function conditionGeneralIsValid() {
-  addAlert(last, messages[1]);
+  addAlert(last, messages.conditions);
 }
 
 function emailIsValid() {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
     return true;
+    console.log("Email is valid");
+    addAlert(email, messages.email);
+  } else {
+    if (email.nextSibling) {
+      removeAlert(email);
+    }
+    return false;
+    console.log("Email is NOT valid");
   }
-  return false;
 }
 
 function isTooLong(nomb) {
