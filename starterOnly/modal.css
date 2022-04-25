@@ -192,10 +192,11 @@ main {
 
 label {
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 14px;
   font-weight: normal;
   display: inline-block;
-  margin-bottom: 11px;
+  margin-bottom: 6px;
+  margin-top: 17px;
 }
 input {
   padding: 8px;
