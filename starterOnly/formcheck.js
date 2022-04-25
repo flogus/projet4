@@ -3,6 +3,7 @@ const first = document.getElementById("first");
 const last = document.getElementById("last");
 const email = document.getElementById("email");
 const birthDate = document.getElementById("birthdate");
+const condGen = document.getElementById("checkbox1");
 const btnSubmit = document.querySelector("input.btn-submit");
 
 // Ajout des evenemts sur le formulaire
@@ -10,6 +11,7 @@ first.addEventListener("change", formIsValid);
 last.addEventListener("change", formIsValid);
 email.addEventListener("change", formIsValid);
 birthDate.addEventListener("change", formIsValid);
+condGen.addEventListener("change", formIsValid);
 
 function addAlert(targetDiv, alertText) {
   let divError = document.createElement("div");
@@ -65,11 +67,26 @@ function dateIsValid() {
   }
 }
 function conditionGeneralIsValid() {
-  addAlert(last, messages.conditions);
+  if (condGen.checked) {
+    if (condGen.nextSibling) {
+      removeAlert(condGen);
+    }
+    return true;
+  } else {
+    addAlert(condGen, messages.conditions);
+
+    return false;
+  }
 }
 
 function formIsValid() {
-  if (firstIsValid() && lastIsValid() && emailIsValid() && dateIsValid()) {
+  if (
+    firstIsValid() &&
+    lastIsValid() &&
+    emailIsValid() &&
+    dateIsValid() &&
+    conditionGeneralIsValid()
+  ) {
     console.log("Is valid");
     btnSubmit.removeAttribute("disabled");
   } else {
