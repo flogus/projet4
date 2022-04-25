@@ -13,18 +13,18 @@ email.addEventListener("change", formIsValid);
 birthDate.addEventListener("change", formIsValid);
 condGen.addEventListener("change", formIsValid);
 
-function addAlert(targetDiv, alertText) {
+let addAlert = (targetDiv, alertText) => {
   let divError = document.createElement("div");
   divError.setAttribute("class", "error");
   divError.textContent = alertText;
   targetDiv.after(divError);
-}
+};
 
-function removeAlert(targetDiv) {
+let removeAlert = (targetDiv) => {
   targetDiv.nextSibling.remove();
-}
+};
 
-function firstIsValid() {
+let firstIsValid = () => {
   if (isTooLong(first.value.length)) {
     addAlert(first, messages.caractOuPlus);
     return false;
@@ -34,8 +34,8 @@ function firstIsValid() {
     }
     return true;
   }
-}
-function lastIsValid() {
+};
+let lastIsValid = () => {
   if (isTooLong(last.value.length)) {
     addAlert(last, messages.caractOuPlus);
     return false;
@@ -45,8 +45,8 @@ function lastIsValid() {
     }
     return true;
   }
-}
-function emailIsValid() {
+};
+let emailIsValid = () => {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
     return true;
     console.log("Email is valid");
@@ -58,15 +58,15 @@ function emailIsValid() {
     return false;
     console.log("Email is NOT valid");
   }
-}
-function dateIsValid() {
+};
+let dateIsValid = () => {
   if (birthdate.value.length == 10) {
     return true;
   } else {
     return false;
   }
-}
-function conditionGeneralIsValid() {
+};
+let conditionGeneralIsValid = () => {
   if (condGen.checked) {
     if (condGen.nextSibling) {
       removeAlert(condGen);
@@ -77,9 +77,9 @@ function conditionGeneralIsValid() {
 
     return false;
   }
-}
+};
 
-function formIsValid() {
+let formIsValid = () => {
   if (
     firstIsValid() &&
     lastIsValid() &&
@@ -93,12 +93,12 @@ function formIsValid() {
     console.log("Is NOT valid");
     btnSubmit.setAttribute("disabled", "");
   }
-}
+};
 
-function isTooLong(nomb) {
+let isTooLong = (nomb) => {
   if (nomb > 1) {
     return false;
   } else {
     return true;
   }
-}
+};
