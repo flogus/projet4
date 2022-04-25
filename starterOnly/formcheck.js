@@ -6,13 +6,6 @@ const birthDate = document.getElementById("birthdate");
 const condGen = document.getElementById("checkbox1");
 const btnSubmit = document.querySelector("input.btn-submit");
 
-// Ajout des evenemts sur le formulaire
-first.addEventListener("change", formIsValid);
-last.addEventListener("change", formIsValid);
-email.addEventListener("change", formIsValid);
-birthDate.addEventListener("change", formIsValid);
-condGen.addEventListener("change", formIsValid);
-
 let addAlert = (targetDiv, alertText) => {
   let divError = document.createElement("div");
   divError.setAttribute("class", "error");
@@ -102,3 +95,10 @@ let isTooLong = (nomb) => {
     return true;
   }
 };
+
+// Ajout des evenemts sur le formulaire
+first.addEventListener("change", formIsValid);
+last.addEventListener("change", formIsValid);
+email.addEventListener("change", formIsValid);
+birthDate.addEventListener("change", formIsValid);
+condGen.addEventListener("change", formIsValid);
