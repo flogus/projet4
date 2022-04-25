@@ -543,3 +543,19 @@ footer {
   top: 2px;
   padding: 0;
 }
+
+#merci {
+  display: none;
+  justify-content: center;
+  height: 80vh;
+  align-items: center;
+  font-size: 2rem;
+  flex-direction: column;
+}
+
+#merci span {
+  flex: 1;
+  align-items: center;
+  text-align: center;
+  display: flex;
+}

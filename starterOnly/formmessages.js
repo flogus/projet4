@@ -5,4 +5,5 @@ const messages = {
   conditions: "Vous devez vérifier que vous acceptez les termes et conditions.",
   choixOptions: "Vous devez choisir une option.",
   dateNaissance: "Vous devez entrer votre date de naissance.",
+  merci: "Merci pour votre inscription",
 };

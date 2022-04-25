@@ -5,6 +5,9 @@ const email = document.getElementById("email");
 const birthDate = document.getElementById("birthdate");
 const condGen = document.getElementById("checkbox1");
 const btnSubmit = document.querySelector("input.btn-submit");
+const merciDiv = document.getElementById("merci");
+const merciDivSpan = document.querySelector("div#merci span");
+const form = document.querySelector(".modal-body form");
 
 let addAlert = (targetDiv, alertText) => {
   let currentDiv = targetDiv.nextElementSibling;
@@ -101,6 +104,11 @@ let isTooLong = (nomb) => {
   }
 };
 
+let merciInscription = () => {
+  merciDiv.style.display = "flex";
+  form.style.display = "none";
+  merciDivSpan.innerHTML = messages.merci;
+};
 // Ajout des evenemts sur le formulaire
 first.addEventListener("change", formIsValid);
 last.addEventListener("change", formIsValid);
