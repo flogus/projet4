@@ -22,7 +22,10 @@ let addAlert = (targetDiv, alertText) => {
 };
 
 let removeAlert = (targetDiv) => {
-  targetDiv.nextSibling.remove();
+  //console.log("last.nextSibling.className", targetDiv.nextSibling.className);
+  if (targetDiv.nextSibling.className == "error") {
+    targetDiv.nextSibling.remove();
+  }
 };
 
 let firstIsValid = () => {
@@ -115,3 +118,4 @@ last.addEventListener("change", formIsValid);
 email.addEventListener("change", formIsValid);
 birthDate.addEventListener("change", formIsValid);
 condGen.addEventListener("change", formIsValid);
+btnSubmit.addEventListener("click", merciInscription);
