@@ -7,10 +7,15 @@ const condGen = document.getElementById("checkbox1");
 const btnSubmit = document.querySelector("input.btn-submit");
 
 let addAlert = (targetDiv, alertText) => {
-  let divError = document.createElement("div");
-  divError.setAttribute("class", "error");
-  divError.textContent = alertText;
-  targetDiv.after(divError);
+  let currentDiv = targetDiv.nextElementSibling;
+  //console.log("targetDiv:", targetDiv, " - currentDiv:", currentDiv);
+  // Ajouter le message d'erreur seulement si il n'y pas déjà un.
+  if (currentDiv == null) {
+    let divError = document.createElement("div");
+    divError.setAttribute("class", "error");
+    divError.textContent = alertText;
+    targetDiv.after(divError);
+  }
 };
 
 let removeAlert = (targetDiv) => {
