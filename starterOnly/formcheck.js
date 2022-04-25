@@ -18,6 +18,7 @@ let addAlert = (targetDiv, alertText) => {
     divError.setAttribute("class", "error");
     divError.textContent = alertText;
     targetDiv.after(divError);
+    targetDiv.style.borderColor = "red";
   }
 };
 
@@ -25,6 +26,7 @@ let removeAlert = (targetDiv) => {
   //console.log("last.nextSibling.className", targetDiv.nextSibling.className);
   if (targetDiv.nextSibling.className == "error") {
     targetDiv.nextSibling.remove();
+    targetDiv.style.borderColor = "";
   }
 };
 
