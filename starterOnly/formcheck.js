@@ -31,6 +31,7 @@ let removeAlert = (targetDiv) => {
 };
 
 let firstIsValid = () => {
+  first.value = first.value.trim();
   if (isTooLong(first.value.length)) {
     addAlert(first, messages.caractOuPlus);
     return false;
@@ -42,6 +43,7 @@ let firstIsValid = () => {
   }
 };
 let lastIsValid = () => {
+  last.value = last.value.trim();
   if (isTooLong(last.value.length)) {
     addAlert(last, messages.caractOuPlus);
     return false;
@@ -80,7 +82,6 @@ let conditionGeneralIsValid = () => {
     return true;
   } else {
     addAlert(condGen, messages.conditions);
-
     return false;
   }
 };
@@ -115,6 +116,7 @@ let merciInscription = () => {
   merciDivSpan.innerHTML = messages.merci;
   event.preventDefault();
 };
+
 // Ajout des evenemts sur le formulaire
 first.addEventListener("change", formIsValid);
 last.addEventListener("change", formIsValid);
