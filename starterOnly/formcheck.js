@@ -113,6 +113,7 @@ let merciInscription = () => {
   merciDiv.style.display = "flex";
   form.style.display = "none";
   merciDivSpan.innerHTML = messages.merci;
+  event.preventDefault();
 };
 // Ajout des evenemts sur le formulaire
 first.addEventListener("change", formIsValid);
