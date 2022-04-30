@@ -3,6 +3,7 @@ const first = document.getElementById("first");
 const last = document.getElementById("last");
 const email = document.getElementById("email");
 const birthDate = document.getElementById("birthdate");
+const quantity = document.getElementById("quantity");
 const condGen = document.getElementById("checkbox1");
 const btnSubmit = document.querySelector("input.btn-submit");
 const merciDiv = document.getElementById("merci");
@@ -56,15 +57,15 @@ let lastIsValid = () => {
 };
 let emailIsValid = () => {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
-    return true;
     console.log("Email is valid");
-    addAlert(email, messages.email);
-  } else {
     if (email.nextSibling) {
       removeAlert(email);
     }
-    return false;
+    return true;
+  } else {
+    addAlert(email, messages.email);
     console.log("Email is NOT valid");
+    return false;
   }
 };
 let dateIsValid = () => {
@@ -117,10 +118,15 @@ let merciInscription = () => {
   event.preventDefault();
 };
 
+let quantityCheck = () => {
+  quantity.value = Math.abs(quantity.value);
+};
+
 // Ajout des evenemts sur le formulaire
 first.addEventListener("change", formIsValid);
 last.addEventListener("change", formIsValid);
 email.addEventListener("change", formIsValid);
 birthDate.addEventListener("change", formIsValid);
 condGen.addEventListener("change", formIsValid);
+quantity.addEventListener("change", quantityCheck);
 btnSubmit.addEventListener("click", merciInscription);
