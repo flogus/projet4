@@ -10,6 +10,7 @@ const merciDiv = document.getElementById("merci");
 const merciDivSpan = document.querySelector("div#merci span");
 const form = document.querySelector(".modal-body form");
 
+// Affichage d'un message d'erreur
 let addAlert = (targetDiv, alertText) => {
   let currentDiv = targetDiv.nextElementSibling;
   //console.log("targetDiv:", targetDiv, " - currentDiv:", currentDiv);
@@ -23,6 +24,7 @@ let addAlert = (targetDiv, alertText) => {
   }
 };
 
+// Suppression d'un message d'erreur
 let removeAlert = (targetDiv) => {
   //console.log("last.nextSibling.className", targetDiv.nextSibling.className);
   if (targetDiv.nextSibling.className == "error") {
@@ -31,6 +33,7 @@ let removeAlert = (targetDiv) => {
   }
 };
 
+// Validation du prénom
 let firstIsValid = () => {
   first.value = first.value.trim();
   if (isTooLong(first.value.length)) {
@@ -43,6 +46,8 @@ let firstIsValid = () => {
     return true;
   }
 };
+
+// Validation du nom
 let lastIsValid = () => {
   last.value = last.value.trim();
   if (isTooLong(last.value.length)) {
@@ -55,6 +60,8 @@ let lastIsValid = () => {
     return true;
   }
 };
+
+// Validation du e-mail
 let emailIsValid = () => {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
     console.log("Email is valid");
@@ -68,6 +75,8 @@ let emailIsValid = () => {
     return false;
   }
 };
+
+// Validation de la date d'anniversaire
 let dateIsValid = () => {
   if (birthdate.value.length == 10) {
     return true;
@@ -75,6 +84,8 @@ let dateIsValid = () => {
     return false;
   }
 };
+
+// Validation des conditions générales
 let conditionGeneralIsValid = () => {
   if (condGen.checked) {
     if (condGen.nextSibling) {
@@ -87,6 +98,10 @@ let conditionGeneralIsValid = () => {
   }
 };
 
+/* 
+Validation du formulaire
+On test les différents champs et fonction on active ou pas le bouton de validation
+*/
 let formIsValid = () => {
   if (
     firstIsValid() &&
@@ -103,6 +118,7 @@ let formIsValid = () => {
   }
 };
 
+// Check de longeur d'un nombre
 let isTooLong = (nomb) => {
   if (nomb > 1) {
     return false;
@@ -111,6 +127,7 @@ let isTooLong = (nomb) => {
   }
 };
 
+// Affichage du message de remerçiments
 let merciInscription = () => {
   merciDiv.style.display = "flex";
   form.style.display = "none";
@@ -122,7 +139,7 @@ let quantityCheck = () => {
   quantity.value = Math.abs(quantity.value);
 };
 
-// Ajout des evenemts sur le formulaire
+// Ajout des événements sur le formulaire
 first.addEventListener("change", formIsValid);
 last.addEventListener("change", formIsValid);
 email.addEventListener("change", formIsValid);
