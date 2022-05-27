@@ -13,7 +13,6 @@ const form = document.querySelector(".modal-body form");
 // Affichage d'un message d'erreur
 let addAlert = (targetDiv, alertText) => {
   let currentDiv = targetDiv.nextElementSibling;
-  //console.log("targetDiv:", targetDiv, " - currentDiv:", currentDiv);
   // Ajouter le message d'erreur seulement si il n'y pas déjà un.
   if (currentDiv == null) {
     let divError = document.createElement("div");
@@ -26,7 +25,6 @@ let addAlert = (targetDiv, alertText) => {
 
 // Suppression d'un message d'erreur
 let removeAlert = (targetDiv) => {
-  //console.log("last.nextSibling.className", targetDiv.nextSibling.className);
   if (targetDiv.nextSibling.className == "error") {
     targetDiv.nextSibling.remove();
     targetDiv.style.borderColor = "";
@@ -39,10 +37,9 @@ let firstIsValid = () => {
   if (isTooLong(first.value.length)) {
     addAlert(first, messages.caractOuPlus);
     return false;
-  } else {
-    if (first.nextSibling) {
-      removeAlert(first);
-    }
+  }
+  if (first.nextSibling) {
+    removeAlert(first);
     return true;
   }
 };
@@ -53,32 +50,28 @@ let lastIsValid = () => {
   if (isTooLong(last.value.length)) {
     addAlert(last, messages.caractOuPlus);
     return false;
-  } else {
-    if (last.nextSibling) {
-      removeAlert(last);
-    }
+  }
+  if (last.nextSibling) {
+    removeAlert(last);
     return true;
   }
 };
 
 // Validation du e-mail
 let emailIsValid = () => {
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
-    console.log("Email is valid");
-    if (email.nextSibling) {
-      removeAlert(email);
-    }
-    return true;
-  } else {
+  if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
     addAlert(email, messages.email);
-    console.log("Email is NOT valid");
     return false;
+  }
+  if (email.nextSibling) {
+    removeAlert(email);
+    return true;
   }
 };
 
 // Validation de la date d'anniversaire
 let dateIsValid = () => {
-  if (birthdate.value.length == 10) {
+  if (birthDate.value.length == 10) {
     return true;
   } else {
     return false;
@@ -87,20 +80,19 @@ let dateIsValid = () => {
 
 // Validation des conditions générales
 let conditionGeneralIsValid = () => {
-  if (condGen.checked) {
-    if (condGen.nextSibling) {
-      removeAlert(condGen);
-    }
-    return true;
-  } else {
+  if (!condGen.checked) {
     addAlert(condGen, messages.conditions);
     return false;
+  }
+  if (condGen.nextSibling) {
+    removeAlert(condGen);
+    return true;
   }
 };
 
 /* 
 Validation du formulaire
-On test les différents champs et fonction on active ou pas le bouton de validation
+On test les différents champs et en fonction on active ou pas le bouton de validation
 */
 let formIsValid = () => {
   if (
@@ -110,10 +102,8 @@ let formIsValid = () => {
     dateIsValid() &&
     conditionGeneralIsValid()
   ) {
-    console.log("Is valid");
     btnSubmit.removeAttribute("disabled");
   } else {
-    console.log("Is NOT valid");
     btnSubmit.setAttribute("disabled", "");
   }
 };
