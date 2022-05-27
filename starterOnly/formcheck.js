@@ -122,7 +122,6 @@ let merciInscription = () => {
   merciDiv.style.display = "flex";
   form.style.display = "none";
   merciDivSpan.innerHTML = messages.merci;
-  event.preventDefault();
 };
 
 let quantityCheck = () => {
