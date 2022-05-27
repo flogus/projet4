@@ -547,7 +547,7 @@ footer {
 #merci {
   display: none;
   justify-content: center;
-  height: 80vh;
+  height: 40vh;
   align-items: center;
   font-size: 2rem;
   flex-direction: column;
