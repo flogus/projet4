@@ -140,10 +140,10 @@ let quantityCheck = () => {
 };
 
 // Ajout des événements sur le formulaire
-first.addEventListener("change", formIsValid);
-last.addEventListener("change", formIsValid);
-email.addEventListener("change", formIsValid);
+first.addEventListener("keyup", formIsValid);
+last.addEventListener("keyup", formIsValid);
+email.addEventListener("keyup", formIsValid);
 birthDate.addEventListener("change", formIsValid);
 condGen.addEventListener("change", formIsValid);
-quantity.addEventListener("change", quantityCheck);
+quantity.addEventListener("keyup", quantityCheck);
 btnSubmit.addEventListener("click", merciInscription);
