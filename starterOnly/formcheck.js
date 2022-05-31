@@ -73,9 +73,8 @@ let emailIsValid = () => {
 let dateIsValid = () => {
   if (birthDate.value.length == 10) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 };
 
 // Validation des conditions générales
@@ -112,9 +111,8 @@ let formIsValid = () => {
 let isTooLong = (nomb) => {
   if (nomb > 1) {
     return false;
-  } else {
-    return true;
   }
+  return true;
 };
 
 // Affichage du message de remerçiments
